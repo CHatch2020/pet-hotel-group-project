@@ -67,8 +67,8 @@ test('Create a new pet via HTTP POST', async () => {
     expect(response.status).toBe(201);
     expect(typeof(response.data)).toBe(typeof({}));
     expect(typeof(response.data.id)).toBe(typeof(0));
-    expect(typeof(response.data.petOwner.petCount)).toBe(typeof(1));
-    expect(response.data.petOwner.petCount).toBe(1);
+//     expect(typeof(response.data.petOwner.petCount)).toBe(typeof(1));
+//     expect(response.data.petOwner.petCount).toBe(1);
     expect(response.data.checkedInAt).toBeNull();
     console.log(`Pet created with id ${pet.id} and owner ${petOwner.name}`);
 });
