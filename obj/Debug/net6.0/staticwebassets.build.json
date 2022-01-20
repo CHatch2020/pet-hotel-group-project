@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Rb0LRbQ28ODw2gCsq1iI3TwIhzLivIDLGPcoAgAay5s=",
+  "Source": "dotnet-bakery",
+  "BasePath": "_content/dotnet-bakery",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
