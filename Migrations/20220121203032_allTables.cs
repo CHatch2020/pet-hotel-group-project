@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace dotnet_bakery.Migrations
 {
-    public partial class CreateBakerTable : Migration
+    public partial class allTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +32,7 @@ namespace dotnet_bakery.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     breed = table.Column<int>(type: "integer", nullable: false),
                     color = table.Column<int>(type: "integer", nullable: false),
-                    checkedIn = table.Column<bool>(type: "boolean", nullable: false),
+                    checkedIn = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     petOwnerId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

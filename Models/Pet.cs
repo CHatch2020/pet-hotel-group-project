@@ -40,7 +40,8 @@ namespace pet_hotel
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PetColorType color { get; set; }
 
-        public bool checkedIn { get; set;}
+        // public bool checkedIn { get; set;}
+         public DateTime? checkedIn { get; set;}
 
 
         // This is the Id of the baker who made this bread

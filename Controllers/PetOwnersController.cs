@@ -4,15 +4,17 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using pet_hotel.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.NetworkInformation;
+
 
 namespace pet_hotel.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PetOwnerController : ControllerBase
+    public class PetOwnersController : ControllerBase
     {
         private readonly ApplicationContext _context;
-        public PetOwnerController(ApplicationContext context) {
+        public PetOwnersController(ApplicationContext context) {
             _context = context;
         }
 
@@ -23,26 +25,16 @@ namespace pet_hotel.Controllers
             return _context.PetOwners;
         }
 
-          // GET /api/bakers
-        // [HttpGet]
-        // public IEnumerable<Baker> GetAll()
-        // {
-        //   return _context.Bakers;
-        //   // SELECT * FROM Bakers
-        // }
-
-
-
         [HttpGet("{id}")]
         public ActionResult<PetOwners> GetById(int id)
         {
         PetOwners petOwners = _context.PetOwners
             .SingleOrDefault(PetOwners => PetOwners.id == id);
 
-        if (petOwners is null)
-        {
-            return NotFound();
-        }
+        // if (petOwners is null)
+        // {
+        //     return NotFound();
+        // }
 
         return petOwners;
         }
@@ -64,6 +56,14 @@ namespace pet_hotel.Controllers
             _context.PetOwners.Remove(petOwners);
             _context.SaveChanges();
         }
+
+        //   [HttpPut("{id}")]
+        // public PetOwner Put(int id, PetOwner petOwner) 
+        // {
+        //     PetOwners petOwners = _context.PetOwners.Find(id);
+        //     _context.PetOwners.Update(petOwners);
+        //     _context.SaveChanges();
+        // }
     }
 
 }

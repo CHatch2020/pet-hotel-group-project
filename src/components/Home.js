@@ -8,7 +8,8 @@ class Home extends Component {
   static displayName = Home.name;
 
   fetchPetOwners = async () => {
-    const response = await axios.get('api/petOwners');
+    const response = await axios.get('api/petowners');
+    console.log(response.data);
     this.props.dispatch({ type: 'SET_PETOWNERS', payload: response.data });
   }
 

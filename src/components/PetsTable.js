@@ -22,7 +22,7 @@ class PetsTable extends Component {
 
    renderTable = () => {
       return (
-         <div class="table-responsive">
+         <div className="table-responsive">
             <table className='table table-striped table-bordered table-hover' aria-labelledby="tabelLabel">
                <thead>
                   <tr>
@@ -41,13 +41,13 @@ class PetsTable extends Component {
                         <td>{pet.name}</td>
                         <td>{pet.breed}</td>
                         <td>{pet.color}</td>
-                        <td>{pet.checkedInAt
-                           ? moment.utc(pet.checkedInAt).local().calendar()
+                        <td>{pet.checkedIn
+                           ? moment.utc(pet.checkedIn).local().calendar()
                            : 'Not Checked In'}
                         </td>
                         <td>{pet.petOwner.name}</td>
                         <td>
-                           {pet.checkedInAt
+                           {pet.checkedIn
                               ? <button onClick={() => this.checkOut(pet.id)} className='btn btn-sm btn-info ml-1 mr-1'>check out</button>
                               : <button onClick={() => this.checkIn(pet.id)} className='btn btn-sm btn-info ml-1 mr-1'>check in</button>
                            }
@@ -177,7 +177,7 @@ class PetsTable extends Component {
 
    checkIn = async (id) => {
       try {
-         await axios.put(`api/pets/${id}/checkin`);
+         await axios.put(`api/pets/${id}/checkedin`);
          this.setState({
             errors: [],
             successMessage: 'Successfully checked in!'
@@ -190,7 +190,7 @@ class PetsTable extends Component {
 
    checkOut = async (id) => {
       try {
-         await axios.put(`api/pets/${id}/checkout`);
+         await axios.put(`api/pets/${id}/checkedout`);
          this.setState({
             errors: [],
             successMessage: 'Successfully checked out!'

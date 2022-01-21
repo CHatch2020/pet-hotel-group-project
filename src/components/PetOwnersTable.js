@@ -51,7 +51,7 @@ class PetOwnersTable extends Component {
 
     renderTable = () => {
         return (
-            <div class="table-responsive">
+            <div className="table-responsive">
                 <table className='table table-striped table-bordered table-hover' aria-labelledby="tabelLabel">
                     <thead>
                         <tr>
@@ -68,8 +68,8 @@ class PetOwnersTable extends Component {
                             <tr key={`petOwner-row-${petOwner.id}`}>
                                 <td>{petOwner.id}</td>
                                 <td>{petOwner.name}</td>
-                                <td>{petOwner.emailAddress}</td>
-                                <td>{petOwner.petCount}</td>
+                                <td>{petOwner.email}</td>
+                                <td>{petOwner.pets}</td>
                                 <td><button onClick={() => this.deletePetOwner(petOwner.id)} className='btn btn-sm btn-danger'>Delete</button></td>
                             </tr>
                         )}
@@ -97,8 +97,8 @@ class PetOwnersTable extends Component {
                     />
                     <input
                         placeholder='Email Address'
-                        value={this.state.newPetOwner.emailAddress}
-                        onChange={(event) => this.setState({ newPetOwner: { ...this.state.newPetOwner, emailAddress: event.target.value } })}
+                        value={this.state.newPetOwner.email}
+                        onChange={(event) => this.setState({ newPetOwner: { ...this.state.newPetOwner, email: event.target.value } })}
                         className={'form-control col-md-3 mr-2'}
                     />
                     <button onClick={this.submitPetOwner} className={'btn btn-primary col-md-2'}>Add Pet Owner</button>
